@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Forge Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e5e7eb;
+        }
+        .hero-bg {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1920x1080/?technology');
+            background-size: cover;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-content {
+            z-index: 1;
+            text-align: center;
+        }
+        .portfolio-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.5);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .latvian-pattern {
+            background-image: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
+            background-size: 40px 40px;
+        }
+        #cookieBanner {
+            position: fixed;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7); /* Adjusted to match site colors */
+            color: #e5e7eb;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            font-family: 'Inter', sans-serif; /* Match site font */
+            text-align: center;
+            transition: bottom 0.7s ease;
+            z-index: 9999;
+        }
+        #cookieBanner label {
+            color: #e5e7eb;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        #cookieBanner input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #3b82f6; /* Match site accent */
+        }
+        #cookieBanner button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #cookieBanner button:first-of-type {
+            background: #00ff9f;
+            color: #1a1a1a;
+        }
+        #cookieBanner button:first-of-type:hover {
+            background: #00e08a;
+        }
+        #cookieBanner button:last-of-type {
+            background: #ff5c5c;
+            color: #e5e7eb;
+        }
+        #cookieBanner button:last-of-type:hover {
+            background: #e04f4f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-3xl font-extrabold text-blue-400">EFT</h1>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#sakums" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Sākums</a>
+                    <a href="#par-mums" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Par mums</a>
+                    <a href="#pakalpojumi" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Pakalpojumi</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="sakums" class="hero-bg">
+        <div id="particles-js"></div>
+        <div class="hero-content max-w-4xl mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                Epic Forge Technologies
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200">Inovatīvi programmatūras risinājumi nākotnei</p>
+            <a href="#pakalpojumi" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition text-lg font-semibold">
+                Apskatiet mūsu darbus
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="par-mums" class="py-20 bg-gray-800 latvian-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Kas mēs esam</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto text-center fade-in">
+                Epic Forge Technologies ir Latvijas tehnoloģiju uzņēmums, kas rada pielāgotus programmatūras risinājumus, kuri pārveido biznesu. Mūsu komanda apvieno radošumu un tehniskās zināšanas, lai veidotu nākotnes tehnoloģijas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="pakalpojumi" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Mūsu pakalpojumi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Pielāgota programmatūra</h3>
+                    <p class="text-gray-300">Unikāli risinājumi, kas izstrādāti, lai atbilstu jūsu biznesa vajadzībām.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Mākoņpakalpojumi</h3>
+                    <p class="text-gray-300">Mērogojami un droši mākoņrisinājumi moderniem uzņēmumiem.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Mākslīgais intelekts</h3>
+                    <p class="text-gray-300">Izmantojot AI, lai radītu inovācijas un efektivitāti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-800 latvian-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Mūsu projekti</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">E-komercijas platforma</h3>
+                    <p class="text-gray-300">Dinamiska tiešsaistes tirdzniecības platforma, kas palielināja ieņēmumus par 35%.</p>
+                </div>
+                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Veselības aprūpes AI</h3>
+                    <p class="text-gray-300">Prediktīvās analītikas modelis pacientu rezultātu uzlabošanai.</p>
+                </div>
+                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Finanšu CRM</h3>
+                    <p class="text-gray-300">Mākonī balstīta CRM sistēma finanšu pakalpojumiem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">&copy; 2025 Epic Forge Technologies. Visas tiesības aizsargātas.</p>
+            <p>E-pasts: <a href="mailto:epicforgetechnologies@gmail.com" class="text-blue-400 hover:text-blue-300">epicforgetechnologies@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Premium CookieForYou Banner in Latvian -->
+    <div id="cookieBanner">
+        <div style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">CookieForYou 🍪</div>
+        <div style="margin-bottom: 15px; font-size: 15px;">Pārvaldiet sīkdatnes un aizsargājiet savu pieredzi. Pieņemot, jūs piekrītat mūsu sīkdatņu pakalpojumam.</div>
+        <div style="text-align:left; margin: 10px 0;">
+            <label><input type="checkbox" id="essential" checked disabled> Nepieciešamās</label><br>
+            <label><input type="checkbox" id="analytics"> Analītika</label><br>
+            <label><input type="checkbox" id="marketing"> Mārketings</label><br>
+            <label><input type="checkbox" id="security"> Drošība</label><br>
+            <label><input type="checkbox" id="anticodestealer"> Anti-Koda Zaglis</label><br>
+            <label><input type="checkbox" id="error"> Kļūdu Ziņošana</label><br>
+            <label><input type="checkbox" id="performance"> Veiktspēja</label><br>
+            <label><input type="checkbox" id="personalization"> Personalizācija</label>
+        </div>
+        <button onclick="acceptCookiesPremium()">Pieņemt izvēlēto</button>
+        <button onclick="rejectCookiesPremium()">Noraidīt visu</button>
+        <div style="margin-top:15px; font-size:12px; color:#e0e0e0;">By Epic Forge Technologies</div>
+    </div>
+
+    <script>
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#3b82f6' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#3b82f6', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 3, direction: 'none', random: false, straight: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animations on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(element => observer.observe(element));
+
+        // Cookie Banner Animation
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('cookieBanner').style.bottom = '30px';
+            }, 500);
+        };
+
+        // Function to set cookies
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
+        }
+
+        // Accept selected cookies
+        function acceptCookiesPremium() {
+            setCookie("CookieForYou", "accepted", 365);
+            setCookie("cookieforeveryone.essential", "true", 365); // always enabled
+            const categories = ["analytics", "marketing", "security", "anticodestealer", "error", "performance", "personalization"];
+            categories.forEach(cat => {
+                const checkbox = document.getElementById(cat);
+                setCookie("cookieforeveryone." + cat, checkbox.checked ? "enabled" : "disabled", 365);
+            });
+            hideBanner();
+            console.log("Sīkdatnes iestatītas:", document.cookie);
+        }
+
+        // Reject all non-essential cookies
+        function rejectCookiesPremium() {
+            setCookie("CookieForYou", "rejected", 365);
+            const categories = ["analytics", "marketing", "security", "anticodestealer", "error", "performance", "personalization"];
+            categories.forEach(cat => setCookie("cookieforeveryone." + cat, "disabled", 365));
+            hideBanner();
+            console.log("Sīkdatnes iestatītas:", document.cookie);
+        }
+
+        // Hide banner
+        function hideBanner() {
+            const banner = document.getElementById('cookieBanner');
+            banner.style.bottom = '-350px';
+            setTimeout(() => { banner.style.display = 'none'; }, 700);
+        }
+    </script>
+</body>
+</html>
