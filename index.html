@@ -3,239 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epic Forge Technologies</title>
+    <title>Sākums | Epic Forge Technologies</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script async src="https://epicforgetechnologies.github.io/cookieforyou/intergration/v1/cookieforyouintergration/cookieforyou.js"></script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1a1a;
-            color: #e5e7eb;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #202124;
+            margin: 0;
+            padding: 0;
         }
         .hero-bg {
+            background: linear-gradient(to bottom, #ffffff, #e8f0fe);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .glue-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .glue-grid__col--span-12 {
+            grid-column: span 12 / span 12;
+        }
+        .glue-mod-text-center {
+            text-align: center;
+        }
+        .glue-headline--headline-1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #202124;
+        }
+        .glue-headline--headline-1 span {
+            color: #1a73e8;
+        }
+        .words-carousel {
+            overflow: hidden;
+            height: 2.5rem;
             position: relative;
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1920x1080/?technology');
-            background-size: cover;
+            background: #f1f3f4;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+        .words-carousel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            animation: slide 30s linear infinite;
         }
-        .hero-content {
-            z-index: 1;
-            text-align: center;
+        .words-carousel li {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1a73e8;
+            margin-right: 24px;
+            white-space: nowrap;
+            line-height: 2.5rem;
         }
-        .portfolio-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.5);
+        .words-carousel:hover ul {
+            animation-play-state: paused;
+        }
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .announcement {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+        .system-requirements-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 12px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .system-requirements-card:hover {
+            transform: translateY(-4px);
         }
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .latvian-pattern {
-            background-image: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1));
-            background-size: 40px 40px;
-        }
-        #cookieBanner {
-            position: fixed;
-            bottom: -300px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 600px;
-            background: linear-gradient(135deg, #3b82f6, #a855f7); /* Adjusted to match site colors */
-            color: #e5e7eb;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            font-family: 'Inter', sans-serif; /* Match site font */
-            text-align: center;
-            transition: bottom 0.7s ease;
-            z-index: 9999;
-        }
-        #cookieBanner label {
-            color: #e5e7eb;
-            font-size: 14px;
-            margin-bottom: 8px;
-            display: block;
-        }
-        #cookieBanner input[type="checkbox"] {
+        .verified-icon::before {
+            content: '✔';
+            color: #34a853;
+            font-size: 20px;
             margin-right: 8px;
-            accent-color: #3b82f6; /* Match site accent */
         }
-        #cookieBanner button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .security-icon::before {
+            content: '🔒';
+            font-size: 20px;
+            margin-right: 8px;
         }
-        #cookieBanner button:first-of-type {
-            background: #00ff9f;
-            color: #1a1a1a;
+        .nav-bar {
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-        #cookieBanner button:first-of-type:hover {
-            background: #00e08a;
+        .nav-bar a {
+            color: #1a73e8;
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
         }
-        #cookieBanner button:last-of-type {
-            background: #ff5c5c;
-            color: #e5e7eb;
+        .nav-bar a:hover {
+            text-decoration: underline;
         }
-        #cookieBanner button:last-of-type:hover {
-            background: #e04f4f;
+        footer {
+            background: #f1f3f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .cta-button {
+            background: #1a73e8;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin: 0 8px;
+        }
+        .cta-button:hover {
+            background: #1359b3;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-3xl font-extrabold text-blue-400">EFT</h1>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <a href="#sakums" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Sākums</a>
-                    <a href="#par-mums" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Par mums</a>
-                    <a href="#pakalpojumi" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Pakalpojumi</a>
-                    <a href="#portfolio" class="text-gray-300 hover:text-blue-400 px-3 py-2 transition">Portfolio</a>
-                </div>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">Epic Forge Technologies</div>
+            <div>
+                <a href="#sakums">Sākums</a>
+                <a href="https://epicforgetechnologies.github.io/lejuplades">Lejupielāde</a>
+                <a href="https://epicforgetechnologies.github.io/veidotajs">Veidotājs</a>
+                <a href="#kontakti">Kontakti</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="sakums" class="hero-bg">
-        <div id="particles-js"></div>
-        <div class="hero-content max-w-4xl mx-auto px-4">
-            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-                Epic Forge Technologies
-            </h2>
-            <p class="text-xl md:text-2xl mb-8 text-gray-200">Inovatīvi programmatūras risinājumi nākotnei</p>
-            <a href="#pakalpojumi" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition text-lg font-semibold">
-                Apskatiet mūsu darbus
-            </a>
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Laipni lūdzam Epic Forge Technologies</h1>
+            <p class="text-xl text-gray-700 mb-6">Atklājiet inovatīvus drošības un produktivitātes rīkus, kas izstrādāti, lai padarītu jūsu digitālo pieredzi drošāku un efektīvāku.</p>
+            <div>
+                <a href="https://epicforgetechnologies.github.io/lejuplades" class="cta-button">Izpētīt Lejupielādes</a>
+                <a href="https://epicforgetechnologies.github.io/saimnieks" class="cta-button">Uzzināt par Dibinātāju</a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="par-mums" class="py-20 bg-gray-800 latvian-pattern">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Kas mēs esam</h2>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto text-center fade-in">
-                Epic Forge Technologies ir Latvijas tehnoloģiju uzņēmums, kas rada pielāgotus programmatūras risinājumus, kuri pārveido biznesu. Mūsu komanda apvieno radošumu un tehniskās zināšanas, lai veidotu nākotnes tehnoloģijas.
-            </p>
+    <!-- Main Announcement -->
+    <section class="section">
+        <div class="announcement fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-blue-600 security-icon">Mūsu Misija</h2>
+            <p class="text-gray-600 mb-4">Epic Forge Technologies ir apņēmusies radīt ģimenēm draudzīgus tehnoloģiskus risinājumus, kas aizsargā lietotājus tiešsaistē un uzlabo viņu digitālo pieredzi.</p>
+            <p class="text-gray-600">Mēs izstrādājam rīkus, kas apvieno drošību, privātumu un lietošanas vienkāršību, lai ikviens varētu baudīt drošu un produktīvu digitālo vidi.</p>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="pakalpojumi" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Mūsu pakalpojumi</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Pielāgota programmatūra</h3>
-                    <p class="text-gray-300">Unikāli risinājumi, kas izstrādāti, lai atbilstu jūsu biznesa vajadzībām.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Mākoņpakalpojumi</h3>
-                    <p class="text-gray-300">Mērogojami un droši mākoņrisinājumi moderniem uzņēmumiem.</p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Mākslīgais intelekts</h3>
-                    <p class="text-gray-300">Izmantojot AI, lai radītu inovācijas un efektivitāti.</p>
+    <!-- Glue Grid Section with Safety.google-like Carousel -->
+    <section class="section fade-in">
+        <div class="glue-grid">
+            <div class="glue-grid__col glue-grid__col--span-12 glue-mod-text-center main-title">
+                <h1 class="glue-headline glue-headline--headline-1 glue-mod-text-center" aria-label="Creating a safer digital future.">Radot <span>drošāku digitālo nākotni.</span></h1>
+                <div class="words-carousel">
+                    <ul aria-hidden="true">
+                        <li>Inovācijas</li>
+                        <li>Tehnoloģijas</li>
+                        <li>Drošība</li>
+                        <li>Privātums</li>
+                        <li>Mākoņdatošana</li>
+                        <li>AI</li>
+                        <li>Šifrēšana</li>
+                        <li>Blokķēde</li>
+                        <li>Kiber aizsardzība</li>
+                        <li>Produktivitāte</li>
+                        <li>Lietotāju pieredze</li>
+                        <li>Digitalizācija</li>
+                        <li>Automātika</li>
+                        <li>Integrācija</li>
+                        <li>Infrastruktūra</li>
+                        <li>Inovāciju vadība</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-800 latvian-pattern">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-10 text-blue-400">Mūsu projekti</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">E-komercijas platforma</h3>
-                    <p class="text-gray-300">Dinamiska tiešsaistes tirdzniecības platforma, kas palielināja ieņēmumus par 35%.</p>
-                </div>
-                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Veselības aprūpes AI</h3>
-                    <p class="text-gray-300">Prediktīvās analītikas modelis pacientu rezultātu uzlabošanai.</p>
-                </div>
-                <div class="portfolio-card bg-gray-700 p-6 rounded-lg shadow-lg fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Finanšu CRM</h3>
-                    <p class="text-gray-300">Mākonī balstīta CRM sistēma finanšu pakalpojumiem.</p>
-                </div>
+    <!-- System Requirements Section -->
+    <section id="sistemos-prasibas" class="section fade-in">
+        <h2 class="text-3xl font-bold mb-6 text-center text-blue-600">Sistēmas Prasības</h2>
+        <p class="text-center text-gray-600 mb-8">Mūsu rīki ir izstrādāti, lai būtu saderīgi ar plašu platformu klāstu, nodrošinot pieejamību visiem lietotājiem.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="system-requirements-card">
+                <h3 class="text-xl font-semibold mb-2 verified-icon">Pārlūki</h3>
+                <p class="text-gray-600">Atbalstītie pārlūki: Google Chrome (v90+), Mozilla Firefox (v85+), Microsoft Edge (v90+).</p>
+            </div>
+            <div class="system-requirements-card">
+                <h3 class="text-xl font-semibold mb-2 verified-icon">Operētājsistēmas</h3>
+                <p class="text-gray-600">Windows 7+, macOS 8+, Ubuntu 19.04+, Android 7+, iOS 10+.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakti" class="section fade-in">
+        <h2 class="text-3xl font-bold mb-6 text-center text-blue-600">Sazinieties ar Mums</h2>
+        <p class="text-center text-gray-600 mb-8">Jautājumi par Epic Forge Technologies vai mūsu rīkiem? Sazinieties ar mums!</p>
+        <form class="max-w-md mx-auto space-y-4">
+            <input type="text" placeholder="Jūsu vārds" class="w-full p-3 border border-gray-300 rounded-lg">
+            <input type="email" placeholder="E-pasts" class="w-full p-3 border border-gray-300 rounded-lg">
+            <textarea placeholder="Ziņojums" rows="4" class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">Sūtīt</button>
+        </form>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="mb-4">&copy; 2025 Epic Forge Technologies. Visas tiesības aizsargātas.</p>
-            <p>E-pasts: <a href="mailto:epicforgetechnologies@gmail.com" class="text-blue-400 hover:text-blue-300">epicforgetechnologies@gmail.com</a></p>
+    <footer>
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+            <p>&copy; 2025 Epic Forge Technologies. Visas tiesības aizsargātas.</p>
+            <p>E-pasts: <a href="mailto:epicforgetechnologies@gmail.com" class="text-blue-600 hover:text-blue-700">epicforgetechnologies@gmail.com</a></p>
         </div>
     </footer>
 
-    <!-- Premium CookieForYou Banner in Latvian -->
-    <div id="cookieBanner">
-        <div style="font-size: 22px; font-weight: bold; margin-bottom: 10px;">CookieForYou 🍪</div>
-        <div style="margin-bottom: 15px; font-size: 15px;">Pārvaldiet sīkdatnes un aizsargājiet savu pieredzi. Pieņemot, jūs piekrītat mūsu sīkdatņu pakalpojumam.</div>
-        <div style="text-align:left; margin: 10px 0;">
-            <label><input type="checkbox" id="essential" checked disabled> Nepieciešamās</label><br>
-            <label><input type="checkbox" id="analytics"> Analītika</label><br>
-            <label><input type="checkbox" id="marketing"> Mārketings</label><br>
-            <label><input type="checkbox" id="security"> Drošība</label><br>
-            <label><input type="checkbox" id="anticodestealer"> Anti-Koda Zaglis</label><br>
-            <label><input type="checkbox" id="error"> Kļūdu Ziņošana</label><br>
-            <label><input type="checkbox" id="performance"> Veiktspēja</label><br>
-            <label><input type="checkbox" id="personalization"> Personalizācija</label>
-        </div>
-        <button onclick="acceptCookiesPremium()">Pieņemt izvēlēto</button>
-        <button onclick="rejectCookiesPremium()">Noraidīt visu</button>
-        <div style="margin-top:15px; font-size:12px; color:#e0e0e0;">By Epic Forge Technologies</div>
-    </div>
-
     <script>
-        // Initialize particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#3b82f6' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5, random: true },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: '#3b82f6', opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 3, direction: 'none', random: false, straight: false }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-            },
-            retina_detect: true
-        });
-
-        // Smooth scrolling
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -245,60 +268,21 @@
             });
         });
 
-        // Fade-in animations on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
+        // Fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        fadeElements.forEach(element => observer.observe(element));
-
-        // Cookie Banner Animation
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('cookieBanner').style.bottom = '30px';
-            }, 500);
-        };
-
-        // Function to set cookies
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
-        }
-
-        // Accept selected cookies
-        function acceptCookiesPremium() {
-            setCookie("CookieForYou", "accepted", 365);
-            setCookie("cookieforeveryone.essential", "true", 365); // always enabled
-            const categories = ["analytics", "marketing", "security", "anticodestealer", "error", "performance", "personalization"];
-            categories.forEach(cat => {
-                const checkbox = document.getElementById(cat);
-                setCookie("cookieforeveryone." + cat, checkbox.checked ? "enabled" : "disabled", 365);
-            });
-            hideBanner();
-            console.log("Sīkdatnes iestatītas:", document.cookie);
-        }
-
-        // Reject all non-essential cookies
-        function rejectCookiesPremium() {
-            setCookie("CookieForYou", "rejected", 365);
-            const categories = ["analytics", "marketing", "security", "anticodestealer", "error", "performance", "personalization"];
-            categories.forEach(cat => setCookie("cookieforeveryone." + cat, "disabled", 365));
-            hideBanner();
-            console.log("Sīkdatnes iestatītas:", document.cookie);
-        }
-
-        // Hide banner
-        function hideBanner() {
-            const banner = document.getElementById('cookieBanner');
-            banner.style.bottom = '-350px';
-            setTimeout(() => { banner.style.display = 'none'; }, 700);
-        }
+        // Form submission (demo)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Paldies par ziņojumu! Mēs drīz sazināsimies.');
+        });
     </script>
 </body>
 </html>
