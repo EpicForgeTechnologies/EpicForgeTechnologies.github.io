@@ -1,10 +1,1 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url=/home" />
-</head>
-<body>
-    <p>Redirecting to <a href="/home">/home</a>...</p>
-    <script>window.location.href = "/home";</script>
-</body>
-</html>
+SIA "Epic Forge Technologies" ir datortehnikas kompānija veidota 2024 gadā SIA "Epic Forge Technologies" Ir atpazīts ar savu project OlBrowse Saimnieks veidotajs u.t.. ir Oskars Zihmanis. 
