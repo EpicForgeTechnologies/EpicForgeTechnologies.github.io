@@ -23,11 +23,13 @@
     .nav-bar a { color: #1a73e8; text-decoration: none; margin: 0 16px; font-weight: 500; font-size: 1.1rem; }
     .current-page { font-weight: 700; color: #0d47a1 !important; }
     footer { background: #f1f3f4; padding: 40px 20px; text-align: center; color: #5f6368; margin-top: 80px; }
-    .hash { font-family: monospace; font-size: 0.9rem; color: #666; background: #f0f0f0; padding: 8px; border-radius: 6px; word-break: break-all; }
+    .hash { font-family: monospace; font-size: 0.9rem; color: #444; background: #f0f0f0; padding: 10px; border-radius: 8px; word-break: break-all; margin-top: 8px; }
+    .loading { color: #666; font-style: italic; }
   </style>
 </head>
 <body>
 
+  <!-- Navigācija -->
   <nav class="nav-bar">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-blue-600">Epic Forge Technologies</div>
@@ -40,34 +42,22 @@
     </div>
   </nav>
 
+  <!-- Galvenā sadaļa -->
   <section class="hero-bg">
     <div class="download-hero">
       <div class="big-icon">EXE</div>
       <h1>EXE Tester</h1>
-      <p>Bezmaksas, viegls un 100% bezsaistes rīks .exe failu drošības pārbaudei.<br>Nekas netiek sūtīts ārā. Nekad.</p>
+      <p>Bezmaksas rīks .exe failu drošības pārbaudei pirms palaišanas.<br>
+      Darbojas bez interneta • Nekad nesūta datus • 100% atvērts pirmkods</p>
 
-      <div id="downloadSection">
-        <p>Ielādējam jaunāko versiju...</p>
-      </div>
-
-      <div id="details" style="margin-top: 40px; display: none;">
-        <p><strong>Versija:</strong> <span id="version"></span> | <strong>Izmērs:</strong> <span id="size"></span> | <strong>Datums:</strong> <span id="date"></span></p>
-
-        <div class="info-grid">
-          <div class="info-card"><h3>148 KB</h3><p>Super viegls un ātrs</p></div>
-          <div class="info-card"><h3>Bez interneta</h3><p>Darbojas pilnībā bezsaistē</p></div>
-          <div class="info-card"><h3>Atvērts pirmkods</h3><p>GitHub repositorijs</p></div>
-          <div class="info-card"><h3>Windows 7–11</h3><p>Visām modernajām versijām</p></div>
-        </div>
-
-        <details style="margin-top: 32px; text-align: left;">
-          <summary style="cursor: pointer; color: #1a73e8; font-weight: 600;">Rādīt SHA256 hash (drošībai)</summary>
-          <div class="hash" id="sha256" style="margin-top: 12px;"></div>
-        </details>
+      <!-- Automātiskā poga un info -->
+      <div id="autoDownload" class="loading">
+        Ielādējam jaunāko versiju no GitHub...
       </div>
     </div>
   </section>
 
+  <!-- Kājene -->
   <footer id="kontakti">
     <div class="max-w-7xl mx-auto text-center text-gray-600">
       <p>&copy; 2025 Epic Forge Technologies. Visas tiesības aizsargātas.</p>
@@ -76,43 +66,61 @@
   </footer>
 
   <script>
-    // Automātiski ielādē jaunāko versiju no GitHub
+    // Ielādē jaunāko release no GitHub
     fetch('https://api.github.com/repos/EpicForgeTechnologies/EXETester/releases/latest')
-      .then(r => r.json())
+      .then(response => response.json())
       .then(data => {
-        const asset = data.assets[0];
-        const downloadUrl = asset.browser_download_url;
-        const version = data.tag_name;
+        const asset = data.assets.find(a => a.name.endsWith('.exe'));
+        if (!asset) throw new Error('Nav .exe faila');
+
+        const version = data.tag_name.replace(/^v/, ''); // noņem "v" no v1.8.3 → 1.8.3
+        const sizeKB = (asset.size / 1024).toFixed(0);
         const date = new Date(data.published_at).toLocaleDateString('lv-LV');
-        const sizeKB = Math.round(asset.size / 1024);
+        const downloadUrl = asset.browser_download_url;
 
-        document.getElementById('downloadSection').innerHTML = `
-          <a href="${downloadUrl}" class="cta-button" onclick="gtag?.('event','download')">
-            Lejupielādēt EXE Tester ${version.replace('v','')}
-          </a>`;
+        // Galvenā poga – tīsa un tīra
+        document.getElementById('autoDownload').innerHTML = `
+          <a href="${downloadUrl}" class="cta-button">
+            Lejupielādēt EXETester ${version}
+          </a>
+          <p style="margin-top: 20px; color: #444; font-size: 1.1rem;">
+            <strong>Versija:</strong> ${version} | <strong>Izmērs:</strong> ${sizeKB} KB | <strong>Datums:</strong> ${date}
+          </p>
 
-        document.getElementById('version').textContent = version;
-        document.getElementById('size').textContent = sizeKB + ' KB';
-        document.getElementById('date').textContent = date;
-        document.getElementById('details').style.display = 'block';
+          <div class="info-grid">
+            <div class="info-card"><h3>${sizeKB} KB</h3><p>Ļoti viegls un ātrs</p></div>
+            <div class="info-card"><h3>Bez interneta</h3><p>Nekas netiek sūtīts</p></div>
+            <div class="info-card"><h3>Atvērts pirmkods</h3><p><a href="https://github.com/EpicForgeTechnologies/EXETester" target="_blank">GitHub</a></p></div>
+            <div class="info-card"><h3>Windows 7–11</h3><p>Visām versijām</p></div>
+          </div>
 
-        // Ja ir SHA256 hash pievienots kā asset vai tekstā
-        const shaAsset = data.assets.find(a => a.name.includes('sha256'));
-        if (shaAsset) {
-          fetch(shaAsset.browser_download_url)
+          <details style="margin-top: 32px; text-align: left;">
+            <summary style="cursor: pointer; color: #1a73e8; font-weight: 600;">Rādīt SHA256 hash (drošībai)</summary>
+            <div class="hash" id="hash">Ielādējam hash...</div>
+          </details>
+        `;
+
+        // Ja ir SHA256 fails (piem. SHA256.txt)
+        const hashAsset = data.assets.find(a => a.name.toLowerCase().includes('sha256'));
+        if (hashAsset) {
+          fetch(hashAsset.browser_download_url)
             .then(r => r.text())
-            .then(txt => document.getElementById('sha256').textContent = txt.trim());
+            .then(txt => {
+              document.getElementById('hash').textContent = txt.trim().split(' ')[0];
+            });
         } else {
-          document.getElementById('sha256').textContent = 'Hash nav pievienots šajā versijā';
+          document.getElementById('hash').textContent = 'Hash nav pievienots šajā versijā';
         }
+
       })
-      .catch(() => {
-        document.getElementById('downloadSection').innerHTML = `
+      .catch(err => {
+        console.error(err);
+        document.getElementById('autoDownload').innerHTML = `
           <a href="https://github.com/EpicForgeTechnologies/EXETester/releases" target="_blank" class="cta-button">
             Lejupielādēt no GitHub
           </a>
-          <p style="margin-top:16px; color:#d93025;">Nevarēja ielādēt automātisko versiju – dodieties uz GitHub</p>`;
+          <p style="margin-top:16px; color:#d93025;">Nevarēja ielādēt automātisko versiju</p>`;
       });
   </script>
 </body>
-</
+</html>
