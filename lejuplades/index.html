@@ -10,95 +10,24 @@
   <style>
     body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; color: #202124; margin: 0; padding: 0; }
     .hero-bg { background: linear-gradient(to bottom, #ffffff, #e8f0fe); padding: 100px 20px 80px; text-align: center; }
-    .download-hero {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 48px 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .download-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #1a73e8;
-      margin-bottom: 16px;
-    }
-    .download-hero p {
-      font-size: 1.25rem;
-      color: #5f6368;
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
-    .big-icon {
-      font-size: 96px;
-      margin-bottom: 24px;
-    }
-    .cta-button {
-      background: #1a73e8;
-      color: #fff;
-      padding: 18px 48px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.3rem;
-      display: inline-block;
-      box-shadow: 0 8px 25px rgba(26,115,232,0.35);
-      transition: all 0.3s;
-    }
-    .cta-button:hover {
-      background: #0d47a1;
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(26,115,232,0.45);
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
-      text-align: left;
-    }
-    .info-card {
-      background: #f8f9fa;
-      padding: 24px;
-      border-radius: 12px;
-      border-left: 5px solid #1a73e8;
-    }
-    .info-card h3 {
-      color: #1a73e8;
-      margin-top: 0;
-      font-size: 1.3rem;
-    }
-    .nav-bar {
-      background: #ffffff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      padding: 16px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .nav-bar a {
-      color: #1a73e8;
-      text-decoration: none;
-      margin: 0 16px;
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-    .nav-bar a:hover { text-decoration: underline; }
+    .download-hero { background: #ffffff; border-radius: 16px; padding: 48px 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto; text-align: center; }
+    .download-hero h1 { font-size: 3rem; font-weight: 700; color: #1a73e8; margin-bottom: 16px; }
+    .download-hero p { font-size: 1.25rem; color: #5f6368; margin-bottom: 32px; line-height: 1.6; }
+    .big-icon { font-size: 96px; margin-bottom: 24px; }
+    .cta-button { background: #1a73e8; color: #fff; padding: 18px 48px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.3rem; display: inline-block; box-shadow: 0 8px 25px rgba(26,115,232,0.35); transition: all 0.3s; }
+    .cta-button:hover { background: #0d47a1; transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,115,232,0.45); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; text-align: left; }
+    .info-card { background: #f8f9fa; padding: 24px; border-radius: 12px; border-left: 5px solid #1a73e8; }
+    .info-card h3 { color: #1a73e8; margin-top: 0; font-size: 1.3rem; }
+    .nav-bar { background: #ffffff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 16px 20px; position: sticky; top: 0; z-index: 10; }
+    .nav-bar a { color: #1a73e8; text-decoration: none; margin: 0 16px; font-weight: 500; font-size: 1.1rem; }
     .current-page { font-weight: 700; color: #0d47a1 !important; }
-    footer {
-      background: #f1f3f4;
-      padding: 40px 20px;
-      text-align: center;
-      color: #5f6368;
-      margin-top: 80px;
-    }
+    footer { background: #f1f3f4; padding: 40px 20px; text-align: center; color: #5f6368; margin-top: 80px; }
+    .hash { font-family: monospace; font-size: 0.9rem; color: #666; background: #f0f0f0; padding: 8px; border-radius: 6px; word-break: break-all; }
   </style>
 </head>
 <body>
 
-  <!-- Navigācija -->
   <nav class="nav-bar">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-blue-600">Epic Forge Technologies</div>
@@ -111,50 +40,34 @@
     </div>
   </nav>
 
-  <!-- Galvenā EXE Tester lejupielādes sadaļa -->
   <section class="hero-bg">
     <div class="download-hero">
       <div class="big-icon">EXE</div>
       <h1>EXE Tester</h1>
-      <p>Pilnīgi bezmaksas rīks, kas pārbauda .exe failus pirms to palaišanas.<br>
-      Aizsargā tavu datoru no vīrusiem, Trojāņiem un citām ļaunprogrammatūrām — 100% bez interneta un datu nosūtīšanas.</p>
-      
-      <a href="https://github.com/epicforgetechnologies/exe-tester/releases/latest/download/EXETester.exe" 
-         class="cta-button">
-        Lejupielādēt EXE Tester
-      </a>
+      <p>Bezmaksas, viegls un 100% bezsaistes rīks .exe failu drošības pārbaudei.<br>Nekas netiek sūtīts ārā. Nekad.</p>
 
-      <p style="margin-top: 24px; color: #444; font-size: 1.1rem;">
-        <strong>Versija:</strong> 1.8.3 | <strong>Izmērs:</strong> 148 KB | <strong>Atjaunināts:</strong> 2025. gada 5. decembris
-      </p>
-
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>148 KB</h3>
-          <p>Ļoti viegls — neaizņem vietu un darbojas uzreiz.</p>
-        </div>
-        <div class="info-card">
-          <h3>Bez interneta</h3>
-          <p>Strādā pilnībā bezsaistē. Nekas netiek sūtīts ārā.</p>
-        </div>
-        <div class="info-card">
-          <h3>Atvērts pirmkods</h3>
-          <p>Vari pārbaudīt visu kodu GitHub repositorijā.</p>
-        </div>
-        <div class="info-card">
-          <h3>Windows 7–11</h3>
-          <p>Darbojas uz visām modernajām Windows versijām.</p>
-        </div>
+      <div id="downloadSection">
+        <p>Ielādējam jaunāko versiju...</p>
       </div>
 
-      <p style="margin-top: 40px; font-size: 0.95rem; color: #777;">
-        <a href="https://github.com/epicforgetechnologies/exe-tester" target="_blank" style="color:#1a73e8; text-decoration:underline">Skatīt pirmkodu GitHub</a> • 
-        <a href="https://github.com/epicforgetechnologies/exe-tester/releases" target="_blank" style="color:#1a73e8; text-decoration:underline">Visas versijas</a>
-      </p>
+      <div id="details" style="margin-top: 40px; display: none;">
+        <p><strong>Versija:</strong> <span id="version"></span> | <strong>Izmērs:</strong> <span id="size"></span> | <strong>Datums:</strong> <span id="date"></span></p>
+
+        <div class="info-grid">
+          <div class="info-card"><h3>148 KB</h3><p>Super viegls un ātrs</p></div>
+          <div class="info-card"><h3>Bez interneta</h3><p>Darbojas pilnībā bezsaistē</p></div>
+          <div class="info-card"><h3>Atvērts pirmkods</h3><p>GitHub repositorijs</p></div>
+          <div class="info-card"><h3>Windows 7–11</h3><p>Visām modernajām versijām</p></div>
+        </div>
+
+        <details style="margin-top: 32px; text-align: left;">
+          <summary style="cursor: pointer; color: #1a73e8; font-weight: 600;">Rādīt SHA256 hash (drošībai)</summary>
+          <div class="hash" id="sha256" style="margin-top: 12px;"></div>
+        </details>
+      </div>
     </div>
   </section>
 
-  <!-- Kājene -->
   <footer id="kontakti">
     <div class="max-w-7xl mx-auto text-center text-gray-600">
       <p>&copy; 2025 Epic Forge Technologies. Visas tiesības aizsargātas.</p>
@@ -162,5 +75,44 @@
     </div>
   </footer>
 
+  <script>
+    // Automātiski ielādē jaunāko versiju no GitHub
+    fetch('https://api.github.com/repos/EpicForgeTechnologies/EXETester/releases/latest')
+      .then(r => r.json())
+      .then(data => {
+        const asset = data.assets[0];
+        const downloadUrl = asset.browser_download_url;
+        const version = data.tag_name;
+        const date = new Date(data.published_at).toLocaleDateString('lv-LV');
+        const sizeKB = Math.round(asset.size / 1024);
+
+        document.getElementById('downloadSection').innerHTML = `
+          <a href="${downloadUrl}" class="cta-button" onclick="gtag?.('event','download')">
+            Lejupielādēt EXE Tester ${version.replace('v','')}
+          </a>`;
+
+        document.getElementById('version').textContent = version;
+        document.getElementById('size').textContent = sizeKB + ' KB';
+        document.getElementById('date').textContent = date;
+        document.getElementById('details').style.display = 'block';
+
+        // Ja ir SHA256 hash pievienots kā asset vai tekstā
+        const shaAsset = data.assets.find(a => a.name.includes('sha256'));
+        if (shaAsset) {
+          fetch(shaAsset.browser_download_url)
+            .then(r => r.text())
+            .then(txt => document.getElementById('sha256').textContent = txt.trim());
+        } else {
+          document.getElementById('sha256').textContent = 'Hash nav pievienots šajā versijā';
+        }
+      })
+      .catch(() => {
+        document.getElementById('downloadSection').innerHTML = `
+          <a href="https://github.com/EpicForgeTechnologies/EXETester/releases" target="_blank" class="cta-button">
+            Lejupielādēt no GitHub
+          </a>
+          <p style="margin-top:16px; color:#d93025;">Nevarēja ielādēt automātisko versiju – dodieties uz GitHub</p>`;
+      });
+  </script>
 </body>
-</html>
+</
